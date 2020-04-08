@@ -6,3 +6,8 @@ git remote add origin "repository link"
 git push -u origin master - push data to server. *** only for first push ***
 
 
+*** While Working ***
+git add .
+git commit -m "commit name"
+git push
+
