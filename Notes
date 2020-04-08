@@ -1,2 +1,8 @@
 Start Server: Ionic Serve 
 git status - shows that the git repository is active
+git add . - adds all changes to repository
+*** 1 time per project *** git commit -m "initial commit" *At beginning of project*
+git remote add origin "repository link"
+git push -u origin master - push data to server. *** only for first push ***
+
+
