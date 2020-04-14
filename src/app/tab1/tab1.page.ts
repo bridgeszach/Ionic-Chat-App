@@ -7,10 +7,11 @@ import { DataService } from "../services/data.service";
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
-  constructor(private data: DataService) {}
-
-  getMessages() {
-    console.log(this.data.getAllMessages());
-    return this.data.getAllMessages();
+  displayMessage: Message[];
+  constructor(private data: DataService) {
+    data.getAllMessages().subscribe((list) => {
+      console.log("obs emited value");
+      this.displayMessage = list;
+    });
   }
 }
