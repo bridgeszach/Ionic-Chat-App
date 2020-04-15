@@ -6,11 +6,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card *ngFor="let message of displayMessage()">
-    <ion-card-content *ngIf="message.imageUrl">
-      <ion-img src="{{message.imageUrl}}"></ion-img>
-    </ion-card-content>
+<ion-content>
+  <ion-card *ngFor="let message of displayMessages">
+    <ion-card-header>
+      <ion-card-title>{{message.from}}</ion-card-title>
+      <span><sup class="date">{{message.createdOn | date:'dd-MMM-yy hh:mm'}}</sup></span>
+      <ion-card-content *ngIf="message.imageUrl">
+        <ion-img src="{{message.imageUrl}}" alt=""></ion-img>
+      </ion-card-content>
+      <ion-card-subtitle>{{message.text}}</ion-card-subtitle>
+    </ion-card-header>
 
     <ion-card-header>
       <ion-card-title>{{message.text}}</ion-card-title>
