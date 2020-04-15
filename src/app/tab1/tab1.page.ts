@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { DataService } from "../services/data.service";
 import { Message } from '../models/message';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: "app-tab1",
@@ -12,9 +13,17 @@ export class Tab1Page {
   message: Message = new Message();
 
   displayMessage: Message[];
-constructor(private data: DataService) {
+constructor(private data: DataService, private shared: SharedService) {
   this.homework();
   data.getAllMessages().subscribe(list => {
+
+    var filtered = [];
+    for(let i=0; i<list.length;i++){
+      var m = list[i];
+      if(m.to == "General" || m.to == shared.userName || m.from == shared.userName){
+        filtered.push(m);
+      }
+    }
     
     this.displayMessages = list.sort((left, right) => {
       //return -1 when left should go first

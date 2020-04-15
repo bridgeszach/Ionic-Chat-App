@@ -11,15 +11,15 @@ import { DataService } from '../services/data.service';
 export class Tab3Page {
 
   friend: Friend = new Friend();
-  myfriends: Friend[] = [];
+  myFriends: Friend[] = [];
 
   constructor(private shared: SharedService, private data: DataService) {
     this.data.getAllFriends().subscribe(list => {
-      this.myfriends = [];
+      this.myFriends = [];
       for(let i = 0; i < list.length; i++){
         var f = list[i];
         if(f.belongsTo == this.shared.userName){
-          this.myfriends.push(f);
+          this.myFriends.push(f);
         }
       }
     });
